@@ -12,7 +12,6 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.n
 @Configuration
 public class HttpRouter {
 
-
     @Bean
     public RouterFunction<ServerResponse> routeUsers(UserHandler handler) {
         return nest(path("/api/users"),

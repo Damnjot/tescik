@@ -25,7 +25,10 @@ public class UserService {
     }
 
     public Mono<User> addUser(User user){
-        return userRepository.existsByUsername(user.getUsername()).flatMap(exists->trySaveUserIfDoesntExist(user, exists));
+        //System.out.println("username: " + user.getUsername() + " password " + user.getPassword());
+        return userRepository
+                .existsByUsername(user.getUsername())
+                .flatMap(exists->trySaveUserIfDoesntExist(user, exists));
     }
 
     public Mono<User> trySaveUserIfDoesntExist(User user, boolean exists){
